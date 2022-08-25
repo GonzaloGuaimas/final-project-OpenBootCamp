@@ -6,7 +6,9 @@ import TaskComponent from '../pure/task'
 function TaskListComponent() {
 
   const defaultTask = new Task('Example','desc',true,LEVELS.URGENTE)
-  
+  const changeState = (id) => {
+    console.log('cambiar estado de una tarea')
+  }
 
   return (
     <div>
