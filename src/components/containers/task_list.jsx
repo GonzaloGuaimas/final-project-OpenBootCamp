@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LEVELS } from '../../models/levels.enum'
 import { Task } from '../../models/task.class'
 import TaskComponent from '../pure/task'
@@ -6,6 +6,12 @@ import TaskComponent from '../pure/task'
 function TaskListComponent() {
 
   const defaultTask = new Task('Example','desc',true,LEVELS.URGENTE)
+  const defaultTask2 = new Task('Example2','desc2',false,LEVELS.NORMAL)
+  const defaultTask3 = new Task('Example2','desc2',false,LEVELS.BLOCKING)
+  
+  const [tasks, setTasks] = useState([defaultTask,defaultTask2,defaultTask3])
+  const [loading, setLoading] = useState(true)
+
   const changeState = (id) => {
     console.log('cambiar estado de una tarea')
   }
@@ -28,12 +34,14 @@ function TaskListComponent() {
                     </tr>
                   </thead>
                   <tbody>
-                    <TaskComponent task={defaultTask} ></TaskComponent>
+                    {tasks.map((task,index) => {
+                      return(<TaskComponent task={task} key={index}></TaskComponent>)
+                    })}
+                  
                   </tbody>
                 </table>
               </div>
             </div>
-            <h1>MY TASKS</h1>
         </div>
         
     </div>
