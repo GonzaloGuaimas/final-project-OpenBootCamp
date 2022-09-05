@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const loginForm = () => {
+const LoginForm = () => {
     const initCredentials = [{
         user: '',
         password: ''
