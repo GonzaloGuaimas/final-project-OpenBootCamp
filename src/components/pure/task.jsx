@@ -4,7 +4,7 @@ import { Task } from '../../models/task.class'
 import '../../styles/task.scss'
 import { LEVELS } from '../../models/levels.enum'
 
-function TaskComponent( { task } ) {
+function TaskComponent( { task, complete, remove } ) {
 
     function taskLevelBadge(){
         switch(task.level){
@@ -39,9 +39,9 @@ function TaskComponent( { task } ) {
 
     function taskCompletedIcon(){
         if(task.completed){
-            return <i className='bi-toggle-on' style={{color: 'green', fontWeight: 'bold'}}></i>
+            return <i onClick={() => complete(task)} className='bi-toggle-on task-action' style={{color: 'green', fontWeight: 'bold'}}></i>
         }else{
-            return <i className='bi-toggle-off' style={{color: 'red', fontWeight: 'bold'}}></i>
+            return <i onClick={() => complete(task)} className='bi-toggle-off task-action' style={{color: 'red', fontWeight: 'bold'}}></i>
         }
     }
 
@@ -58,14 +58,16 @@ function TaskComponent( { task } ) {
         </td>
         <td className='align-middle'>
             {taskCompletedIcon()}
-            <i className='bi-trash' style={{color: 'tomato', fontSize: '20px'}}></i>
+            <i onClick={() => remove(task)} className='bi-trash task-action' style={{color: 'tomato', fontSize: '20px'}}></i>
         </td>
     </tr>
   )
 }
 
 TaskComponent.propTypes = {
-    task: PropTypes.instanceOf(Task)
+    task: PropTypes.instanceOf(Task).isRequired,
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 }
 
 export default TaskComponent
