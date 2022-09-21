@@ -24,7 +24,7 @@ const TaskForm = ({ add }) => {
         <input ref={nameRef} id='inputName' type={'text'} placeholder='input name' className='form-control form-control-lg' required autoFocus/>
         <input ref={descriptionRef} id='inputDescription' type={'text'} placeholder='input description' className='form-control form-control-lg' required/>
         <label htmlFor='selectLevel' className='sr-only'>Priority</label>
-        <select id="inputLevel" useRef={levelRef} defaultValue={LEVELS.NORMAL}>
+        <select id="inputLevel" ref={levelRef} defaultValue={LEVELS.NORMAL}>
           <option value={LEVELS.NORMAL}>Normal</option>
           <option value={LEVELS.URGENTE}>Urgent</option>
           <option value={LEVELS.BLOCKING}>Blocking</option>
