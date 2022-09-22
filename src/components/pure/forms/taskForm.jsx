@@ -42,7 +42,7 @@ const TaskForm = ({ add, length }) => {
           <option style={blockingStyle} value={LEVELS.BLOCKING}>Blocking</option>
         </select>
         <button type='submit' className='btn btn-success btn-lg ms-2'>
-        {length>0 ? 'Add Task' : 'Add your First Task'}
+          {length>0 ? 'Add Task' : 'Add your First Task'}
         </button>
       </div>
      
