@@ -46,7 +46,7 @@ function TaskComponent( { task, complete, remove } ) {
     }
 
   return (
-    <tr className='fw-normal'>
+    <tr className={task.completed ? 'fw-normal task-completed':'fw-normal task-pending'}>
         <th>
             <span className='ms-2'>{task.name}</span>
         </th>
