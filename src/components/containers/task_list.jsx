@@ -36,6 +36,38 @@ function TaskListComponent() {
     setTasks(tempTasks)
   }
 
+  const Table = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th scope='col'>Title</th>
+            <th scope='col'>Description</th>
+            <th scope='col'>Priority</th>
+            <th scope='col'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((task,index) => {
+            return(<TaskComponent task={task} key={index} complete={completeTask} remove={deleteTask}></TaskComponent>)
+          })}
+        
+        </tbody>
+      </table>
+    )
+  }
+  let tasksTable = <Table/>
+  if(tasks.length>0){
+    tasksTable = <Table/>
+  }else{
+    tasksTable = (
+      <div>
+      <h3>No tasks</h3>
+      <p>please create a task</p>
+    </div>
+    )
+  }
+
   return (
     <div>
         <div className='col-12'>
@@ -44,22 +76,7 @@ function TaskListComponent() {
                 <h5>Your Tasks:</h5>
               </div>
               <div className='card-body' data-mdb-perfect-scrollbar='true'  style={ {position: 'relative', height: '400px'} }>
-                <table>
-                  <thead>
-                    <tr>
-                      <th scope='col'>Title</th>
-                      <th scope='col'>Description</th>
-                      <th scope='col'>Priority</th>
-                      <th scope='col'>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tasks.map((task,index) => {
-                      return(<TaskComponent task={task} key={index} complete={completeTask} remove={deleteTask}></TaskComponent>)
-                    })}
-                  
-                  </tbody>
-                </table>
+                {tasksTable}
               </div>
             </div>
             <TaskForm add={addTask}></TaskForm>
