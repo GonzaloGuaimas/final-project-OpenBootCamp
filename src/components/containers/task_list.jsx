@@ -79,7 +79,7 @@ function TaskListComponent() {
                 {tasksTable}
               </div>
             </div>
-            <TaskForm add={addTask}></TaskForm>
+            <TaskForm add={addTask} length={tasks.length}></TaskForm>
         </div>
         
     </div>

@@ -15,25 +15,22 @@ function TaskComponent( { task, complete, remove } ) {
                         {task.level}
                     </span>    
                 </h6>)
+            case LEVELS.URGENTE:
+                return(
+                <h6 className='mb-0'>
+                    <span className='badge bg-warning'>
+                        {task.level}
+                    </span>    
+                </h6>)
+            case LEVELS.BLOCKING:
+                return(
+                <h6 className='mb-0'>
+                    <span className='badge bg-danger'>
+                        {task.level}
+                    </span>    
+                </h6>)
+            default:
                 break
-                case LEVELS.URGENTE:
-                    return(
-                    <h6 className='mb-0'>
-                        <span className='badge bg-warning'>
-                            {task.level}
-                        </span>    
-                    </h6>)
-                    break
-                    case LEVELS.BLOCKING:
-                        return(
-                        <h6 className='mb-0'>
-                            <span className='badge bg-danger'>
-                                {task.level}
-                            </span>    
-                        </h6>)
-                        break
-                default:
-                    break
         }
     }
 
