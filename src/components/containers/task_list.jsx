@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { LEVELS } from '../../models/levels.enum'
 import { Task } from '../../models/task.class'
 import TaskForm from '../pure/forms/taskForm'
@@ -12,6 +13,12 @@ function TaskListComponent() {
   
   const [tasks, setTasks] = useState([defaultTask,defaultTask2,defaultTask3])
   const [loading, setLoading] = useState(true)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false)
+    },2000)
+  },[tasks])
 
   function completeTask(task){
     console.log('Complete this task', task)
@@ -68,6 +75,12 @@ function TaskListComponent() {
     )
   }
 
+  const loadingStyle = {
+    color: 'grey',
+    fontSize: '30px',
+    fontWeight: 'bold'
+  }
+
   return (
     <div>
         <div className='col-12'>
@@ -76,7 +89,7 @@ function TaskListComponent() {
                 <h5>Your Tasks:</h5>
               </div>
               <div className='card-body' data-mdb-perfect-scrollbar='true'  style={ {position: 'relative', height: '400px'} }>
-                {tasksTable}
+                {loading ? (<p style={loadingStyle} >Loading...</p>) : tasksTable}
               </div>
             </div>
             <TaskForm add={addTask} length={tasks.length}></TaskForm>
