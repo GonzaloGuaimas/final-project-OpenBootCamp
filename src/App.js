@@ -4,7 +4,7 @@ import TaskListComponent from './components/containers/task_list';
 import Greetingstyled from './components/pure/forms/Greetingstyled';
 import Father from './components/containers/father';
 import LoginFormik from './components/pure/forms/LoginFormik';
-import { RegisterFormik } from './components/pure/forms/registerFormik';
+import { TaskFormik } from './components/pure/forms/taskFormik';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       </header>*/}
       {/* <TaskListComponent></TaskListComponent> */}
       {/* <LoginFormik></LoginFormik> */}
-      <RegisterFormik></RegisterFormik>
+      <TaskFormik></TaskFormik>
     </div>
   );
 }
