@@ -4,7 +4,7 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as yup from 'yup'
 import { LEVELS } from '../../../models/levels.enum'
 
-export const RegisterFormik = () => {
+export const TaskFormik = () => {
     const initialValues = {
         name: '',
         description: '',
