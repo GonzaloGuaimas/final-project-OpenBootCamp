@@ -27,14 +27,69 @@ export const RegisterFormik = () => {
               [yup.ref('password')],
               'Password must match'
             )
-          }).required('You must confirm the password')
-
-
+          }).required('You must confirm the password'),
+          role: yup.string().oneOf([ROLES.USER,ROLES.ADMIN],'You must select a Role: User / Admin').required('Role is required')
         }
     )
   return (
     <div>
-
+      <h4>Register Formik</h4>
+      <Formik
+      initialValues={initialValues}
+      validationSchema={registerSchema}
+      onSubmit={
+        async (values) => {
+            await new Promise((r) => setTimeout(r,500))
+            alert(JSON.stringify(values,null,2))
+        }}
+      >
+        {({values, touched, errors, isSubmitting, handleChange, handleBlur}) => (
+          <Form>
+            <label htmlFor="username">Username</label>
+            <Field id='username' name='username' placeholder='user name'></Field>
+            {
+                errors.username && touched.username && 
+                (
+                    <div>
+                        <ErrorMessage name='username' />
+                    </div>
+                )
+            }
+            <label htmlFor="email">Email</label>
+            <Field id='email' name='email' placeholder='example@company.com'></Field>
+            {
+                errors.email && touched.email && 
+                (
+                    <div>
+                        <ErrorMessage name='email' />
+                    </div>
+                )
+            }
+            <label htmlFor="password">Password</label>
+            <Field id='password' type='password' name='password' placeholder='password'></Field>
+            {
+                errors.password && touched.password && 
+                (
+                    <div>
+                          <ErrorMessage name='password' />
+                    </div>
+                )
+            }
+            <label htmlFor="confirm">Confirm Password</label>
+            <Field id='confirm' type='confirm' name='confirm' placeholder='confirm password'></Field>
+            {
+                errors.confirm && touched.confirm && 
+                (
+                    <div>
+                          <ErrorMessage name='confirm' />
+                    </div>
+                )
+            }
+            <button type='submit'>Register</button>
+            {isSubmitting ? (<p>Sending your credentials...</p>) : null}
+          </Form>
+        )}
+      </Formik>
     </div>
   )
 }
