@@ -5,6 +5,7 @@ import Greetingstyled from './components/pure/forms/Greetingstyled';
 import Father from './components/containers/father';
 import LoginFormik from './components/pure/forms/LoginFormik';
 import { TaskFormik } from './components/pure/forms/taskFormik';
+import AsyncExample from './components/pure/AsyncExample';
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
       </header>*/}
       {/* <TaskListComponent></TaskListComponent> */}
       {/* <LoginFormik></LoginFormik> */}
-      <TaskFormik></TaskFormik>
+      {/* <TaskFormik></TaskFormik> */}
+
+      <AsyncExample></AsyncExample>
     </div>
   );
 }
