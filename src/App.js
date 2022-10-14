@@ -6,6 +6,7 @@ import Father from './components/containers/father';
 import LoginFormik from './components/pure/forms/LoginFormik';
 import { TaskFormik } from './components/pure/forms/taskFormik';
 import AsyncExample from './components/pure/AsyncExample';
+import { ObservableExample } from './components/pure/ObservableExample';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
       {/* <LoginFormik></LoginFormik> */}
       {/* <TaskFormik></TaskFormik> */}
 
-      <AsyncExample></AsyncExample>
+      {/* <AsyncExample></AsyncExample> */}
+      <ObservableExample></ObservableExample>
     </div>
   );
 }
