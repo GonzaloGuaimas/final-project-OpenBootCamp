@@ -8,6 +8,7 @@ import { TaskFormik } from './components/pure/forms/taskFormik';
 import AsyncExample from './components/pure/AsyncExample';
 import { ObservableExample } from './components/pure/ObservableExample';
 import { FetchExample } from './components/pure/FetchExample';
+import { AxiosExample } from './components/pure/AxiosExample';
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
 
       {/* <AsyncExample></AsyncExample> */}
       {/* <ObservableExample></ObservableExample> */}
-      <FetchExample/>
+      {/* <FetchExample/> */}
+      <AxiosExample></AxiosExample>
     </div>
   );
 }
